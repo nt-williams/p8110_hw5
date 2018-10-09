@@ -29,3 +29,15 @@ proc phreg data = hw5;
 	model len_follow * final_stat(0) = mi_ord age_c bmi year / risklimits covb ties = efron; 
 	title "Cox model, length of follow-up as a function of MI order, age category, bmi, and cohort year"; 
 run; 
+
+* cox model 3; 
+
+proc phreg data = hw5; 
+	class mi_ord (ref = "0")
+		  age_c (ref = "1")
+		  year (ref = "1") / param = ref; 
+	model len_follow * final_stat(0) = mi_ord age_c bmi year mi_ord * age_c / risklimits covb ties = efron; 
+	hazardratio mi_ord / at (age_c = "2") diff = all; 
+	title "Cox model, length of follow-up as a function of MI order, age category, bmi, cohort year, interaction between 
+		   MI order and age category"; 
+run;
