@@ -1,0 +1,18 @@
+---
+title: "P8110 Homework 5"
+author: "Nick Williams"
+date: "October 9, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 1
+
+## Problem 2
+
+## Problem 3
+
+## Problem 4
