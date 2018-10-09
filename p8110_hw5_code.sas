@@ -38,6 +38,27 @@ proc phreg data = hw5;
 		  year (ref = "1") / param = ref; 
 	model len_follow * final_stat(0) = mi_ord age_c bmi year mi_ord * age_c / risklimits covb ties = efron; 
 	hazardratio mi_ord / at (age_c = "2") diff = all; 
+	baseline out = model_3 survival = surv lower = lcl upper = ucl; 
 	title "Cox model, length of follow-up as a function of MI order, age category, bmi, cohort year, interaction between 
 		   MI order and age category"; 
 run;
+
+* survival prediction; 
+
+data surv_pred; 
+	input id mi_ord age_c bmi year; 
+	cards; 
+	1 1 4 30 3
+	; 
+run; 
+
+proc phreg data = hw5 plots(cl) = survival; 
+	class mi_ord (ref = "0")
+		  age_c (ref = "1")
+		  year (ref = "1") / param = ref; 
+	model len_follow * final_stat(0) = mi_ord age_c bmi year mi_ord * age_c / risklimits covb ties = efron; 
+	baseline covariates = surv_pred out = pred survival = _all_ / rowid = id; 
+run; 
+
+proc print data = pred; 
+run; 
