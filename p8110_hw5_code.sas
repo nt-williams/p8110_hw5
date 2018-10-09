@@ -12,3 +12,10 @@ data hw5;
 	input id len_follow final_stat mi_ord bmi year age_c; 
 run; 
 
+* cox model 1; 
+
+proc phreg data = hw5; 
+	class mi_ord (ref = "0") / param = ref; 
+	model len_follow*final_stat(0) = mi_ord / risklimits covb ties = efron; 
+	title "Cox model, length of follow-up as a function of MI order"; 
+run; 
