@@ -27,6 +27,28 @@ proc phreg data = hw5;
 run; 
 ```
 
+$$
+\begin{aligned}
+h(t, x, \beta) = h_0(t)e^{\beta_1(x_1)} & & \text{where, } x_1 = 
+\begin{cases}
+0 \text{ if first MI} \\
+1 \text{ if recurrent MI}
+\end{cases}
+\end{aligned}
+$$  
+
+
+1. $H_0: \beta_1 = 0$  
+   $H_A: \beta_1 \neq 0$  
+   
+2. Using a likelihood ratio test: 
+   $$G = 9.1431 \sim \chi^2_1 \text{ under the null}$$
+   $$p = P(\chi^2_1 \geq 9.1431) = 0.0025$$
+   
+3. $0.0025 < 0.05 \rightarrow$ reject the null hypothesis
+
+4. There is sufficient evidence to conclude that, at the 5% significance level, the rate of death is different between patients with first time MI and patients with recurrent MI. The risk of death among patients with recurrent MI is 1.53 times the risk of death among patients experiencing MI for the first time. 
+
 ## Problem 2
 
 ```{}
