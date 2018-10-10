@@ -246,6 +246,8 @@ proc print data = pred;
 run; 
 ```
 
+The probability, from SAS, that an individual who is older than 80, with a BMI equal to 30, and was in the 2001 cohort study survives more than 365 days (the closest unique event time point is 363 days) is 0.54179. 
+
 
 
 
