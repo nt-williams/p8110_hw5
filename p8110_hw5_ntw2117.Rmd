@@ -29,7 +29,7 @@ run;
 
 $$
 \begin{aligned}
-h(t, x, \beta) = h_0(t)e^{\beta_1(x_1)} & & \text{where, } x_1 = 
+h(t, x, \beta) = h_0(t)\exp(\beta_1(x_1)) & & \text{where, } x_1 = 
 \begin{cases}
 0 \text{ if first MI} \\
 1 \text{ if recurrent MI}
@@ -65,7 +65,7 @@ run;
 
 $$
 \begin{aligned}
-h(t, x_i, \beta_i) = h_0(t)e^{\beta_1x_1 + \beta_2x_2 + \beta_3x_3 \beta_4x_4 + \beta_5x_5 + \beta_6x_6 + \beta_7x_7} 
+h(t, x_i, \beta_i) = h_0(t)\exp(\beta_1x_1 + \beta_2x_2 + \beta_3x_3 \beta_4x_4 + \beta_5x_5 + \beta_6x_6 + \beta_7x_7)
 \text{ where, }
 \end{aligned}
 $$
@@ -146,8 +146,8 @@ run;
 
 $$
 \begin{aligned}
-h(t, x_i, \beta_i) = h_0(t)e^{\beta_1x_1 + \beta_2x_2 + \beta_3x_3 \beta_4x_4 + \beta_5x_5 + \beta_6x_6 + \beta_7x_7 
-                              + \beta_8x_1x_2 + \beta_9x_1x_3 + \beta_{10}x_1x_4} 
+h(t, x_i, \beta_i) = h_0(t)\exp(\beta_1x_1 + \beta_2x_2 + \beta_3x_3 \beta_4x_4 + \beta_5x_5 + \beta_6x_6 + \beta_7x_7 
+                              + \beta_8x_1x_2 + \beta_9x_1x_3 + \beta_{10}x_1x_4)  
 \text{ where, }
 \end{aligned}
 $$
