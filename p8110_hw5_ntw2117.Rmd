@@ -144,6 +144,85 @@ proc phreg data = hw5;
 run;
 ```
 
+$$
+\begin{aligned}
+h(t, x_i, \beta_i) = h_0(t)e^{\beta_1x_1 + \beta_2x_2 + \beta_3x_3 \beta_4x_4 + \beta_5x_5 + \beta_6x_6 + \beta_7x_7 
+                              + \beta_8x_1x_2 + \beta_9x_1x_3 + \beta_{10}x_1x_4} 
+\text{ where, }
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+x_1 &= 
+\begin{cases}
+1 \text{ if first MI} \\
+0 \text{ if recurrent MI}
+\end{cases} & &
+x_2  = 
+\begin{cases}
+1 \text{ if } 60 \leq \text{age}< 70 \\
+0 \text{ otherwise}
+\end{cases} & &
+x_3 = 
+\begin{cases}
+1 \text{ if } 70 \leq \text{age}< 80 \\
+0 \text{ otherwise}
+\end{cases} \\
+x_4 &= 
+\begin{cases}
+1 \text{ if } \text{age} \geq 80 \\
+0 \text{ otherwise}
+\end{cases} & & 
+x_5 = \text{BMI} & & 
+x_6 = 
+\begin{cases}
+1 \text{ if cohort } 2 \\
+0 \text{ otherwise}
+\end{cases} \\
+x_7 &= 
+\begin{cases}
+1 \text{ if cohort } 3 \\
+0 \text{ otherwise}
+\end{cases}
+\end{aligned}
+$$
+
+#### Hazard ratio
+
+$$
+\begin{aligned}
+HR\{\text{recurrent MI vs. first MI, age = }60-70\} 
+&= \frac{h(t, x_1 = 1, x_2 = 1, x_3 = x_4 = ... = x_7 = 0)}{h(t, x_1 = 0, x_2 = 1, x_3 = x_4 = ... = x_7 = 0)} \\
+&= \frac{h_0(t)\exp(\hat{\beta_1} + \hat{\beta_2} + \hat{\beta_8})}{h_0(t)\exp(\hat{\beta_2})} \\
+&= \exp(\hat{\beta_1} + \hat{\beta_8}) \\
+&= \exp(1.09033 + 0.4091) \\
+&= 4.4791
+\end{aligned}
+$$
+
+#### 95% CI
+
+$$
+\begin{aligned}
+\hat{\mathrm{Var}}(\hat{\beta_1} + \hat{\beta_8}) &= \hat{\mathrm{Var}}(\hat{\beta_1}) + \hat{\mathrm{Var}}(\hat{\beta_8}) + 2\hat{\mathrm{Cov}}(\hat{\beta_1} + \hat{\beta_8}) \\
+&= 0.2302 + 0.4539 + 2(-0.227) \\
+&= 0.2301 \\
+\hat{\mathrm{SE}}(\hat{\beta_1} + \hat{\beta_8}) &= \sqrt{0.2301} = 0.4797
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+95\% \mathrm{CI} &= \exp[(\hat{\beta_1} + \hat{\beta_8}) \pm 1.96 \times \hat{\mathrm{SE}}(\hat{\beta_1} + \hat{\beta_8})] \\
+&= \exp(1.49943 \pm 0.9402) \\
+&= \exp(0.5592, 2.439) \\
+&= (1.749, 11.469)
+\end{aligned}
+$$
+
+The death rate for patients between ages 60 and 70 with recurrent MI is 4.48 times the death rate compared to patients between the ages of 60 and 70 experiencing their first MI throughout the study period. Furthermore, we are 95% confident that this hazard ratio is between 1.749 and 11.469. 
+
 ## Problem 4
 
 ```{}
