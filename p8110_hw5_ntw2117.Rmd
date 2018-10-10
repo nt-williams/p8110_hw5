@@ -63,6 +63,70 @@ proc phreg data = hw5;
 run; 
 ```
 
+$$
+\begin{aligned}
+h(t, x_i, \beta_i) = h_0(t)e^{\beta_1x_1 + \beta_2x_2 + \beta_3x_3 \beta_4x_4 + \beta_5x_5 + \beta_6x_6 + \beta_7x_7} 
+\text{ where, }
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+x_1 &= 
+\begin{cases}
+1 \text{ if first MI} \\
+0 \text{ if recurrent MI}
+\end{cases} & &
+x_2  = 
+\begin{cases}
+1 \text{ if } 60 \leq \text{age}< 70 \\
+0 \text{ otherwise}
+\end{cases} & &
+x_3 = 
+\begin{cases}
+1 \text{ if } 70 \leq \text{age}< 80 \\
+0 \text{ otherwise}
+\end{cases} \\
+x_4 &= 
+\begin{cases}
+1 \text{ if } \text{age} \geq 80 \\
+0 \text{ otherwise}
+\end{cases} & & 
+x_5 = \text{BMI} & & 
+x_6 = 
+\begin{cases}
+1 \text{ if cohort } 2 \\
+0 \text{ otherwise}
+\end{cases} \\
+x_7 &= 
+\begin{cases}
+1 \text{ if cohort } 3 \\
+0 \text{ otherwise}
+\end{cases}
+\end{aligned}
+$$
+
+1. $H_0: \beta_2 = \beta_3 = ... = \beta_7$  
+   $H_A: \text{ not } H_0$  
+
+2. Using likelihood ratio test: 
+
+$$
+\begin{aligned}
+G &= -2 \log [l_p(\hat{\beta}) - l_q(\hat{\beta})] \\
+&= 2445.498 - 2305.777 \\
+&= 139.721 \sim \chi^2_6 \text{ under the null}
+\end{aligned} \\
+$$
+
+$$
+p = P(139.721 \geq \chi^2_6) < 0.001
+$$
+
+3. $0.001 < 0.05 \rightarrow$ reject the null
+
+4. At the 5% signficance level, there is sufficient evidence to conclude that model 2, the adjusted model, is a better predictor of survival time than model 1, the crude model. 
+
 ## Problem 3
 
 ```{}
