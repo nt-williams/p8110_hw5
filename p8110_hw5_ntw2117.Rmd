@@ -27,6 +27,8 @@ proc phreg data = hw5;
 run; 
 ```
 
+\vspace{5cm}
+
 $$
 \begin{aligned}
 h(t, x, \beta) = h_0(t)\exp(\beta_1(x_1)) & & \text{where, } x_1 = 
@@ -41,13 +43,15 @@ $$
 1. $H_0: \beta_1 = 0$  
    $H_A: \beta_1 \neq 0$  
    
-2. Using a likelihood ratio test: 
-   $$G = 9.1431 \sim \chi^2_1 \text{ under the null}$$
-   $$p = P(\chi^2_1 \geq 9.1431) = 0.0025$$
+2. Using a Wald Chi-squared test: 
+   $$Z^2 = 9.4081 \sim \chi^2_1 \text{ under the null}$$
+   $$p = P(\chi^2_1 \geq 9.4081) = 0.0022$$
    
-3. $0.0025 < 0.05 \rightarrow$ reject the null hypothesis
+3. $0.0022 < 0.05 \rightarrow$ reject the null hypothesis
 
-4. There is sufficient evidence to conclude that, at the 5% significance level, the rate of death is different between patients with first time MI and patients with recurrent MI. The risk of death among patients with recurrent MI is 1.53 times the risk of death among patients experiencing MI for the first time. 
+4. There is sufficient evidence to conclude that, at the 5% significance level, the rate of death is different between patients with first time MI and patients with recurrent MI. The rate of death among patients with recurrent MI is 1.53 times the rate of death among patients experiencing MI for the first time. 
+
+\newpage
 
 ## Problem 2
 
@@ -62,6 +66,8 @@ proc phreg data = hw5;
 	       age category, bmi, and cohort year"; 
 run; 
 ```
+
+\vspace{5cm}
 
 $$
 \begin{aligned}
@@ -143,6 +149,8 @@ proc phreg data = hw5;
 		   MI order and age category"; 
 run;
 ```
+
+\vspace{6cm}
 
 $$
 \begin{aligned}
@@ -245,6 +253,8 @@ run;
 proc print data = pred; 
 run; 
 ```
+
+\vspace{6cm}
 
 The probability, from SAS, that an individual who is older than 80, with a BMI equal to 30, and was in the 2001 cohort study survives more than 365 days (the closest unique event time point is 363 days) is 0.54179. 
 
