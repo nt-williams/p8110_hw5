@@ -150,7 +150,7 @@ proc phreg data = hw5;
 run;
 ```
 
-\vspace{6cm}
+\vspace{10cm}
 
 $$
 \begin{aligned}
